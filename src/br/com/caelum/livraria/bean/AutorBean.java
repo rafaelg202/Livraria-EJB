@@ -11,7 +11,8 @@ import br.com.caelum.livraria.modelo.Autor;
 @Model
 public class AutorBean {
 	
-	private Autor autor = new Autor();
+	@Inject
+	private Autor autor;
 	
 	@Inject
 	private AutorDao dao;
