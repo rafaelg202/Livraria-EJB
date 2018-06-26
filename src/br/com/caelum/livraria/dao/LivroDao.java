@@ -16,6 +16,7 @@ public class LivroDao {
 	
 	public void salva(Livro livro) {
 		manager.persist(livro);
+		System.out.println("[INFO] Novo livro criado:" + livro.getTitulo());
 	}
 	
 	public List<Livro> todosLivros() {
