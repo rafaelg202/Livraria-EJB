@@ -7,6 +7,10 @@ import javax.annotation.PostConstruct;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
 import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
+import javax.ejb.TransactionManagement;
+import javax.ejb.TransactionManagementType;
 
 import br.com.caelum.livraria.modelo.Autor;
 import br.com.caelum.livraria.modelo.Livro;
@@ -14,7 +18,7 @@ import br.com.caelum.livraria.modelo.Usuario;
 
 
 @Singleton
-@Startup
+@TransactionManagement(TransactionManagementType.CONTAINER)
 public class Banco {
 	
 	public static List<Livro> livros = new ArrayList<Livro>();
@@ -31,7 +35,8 @@ public class Banco {
 	static {
 		inicializaBanco();
 	}
-
+	
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public void save(Livro livro) {
 		livro.setId(chave++);
 		livros.add(livro);
