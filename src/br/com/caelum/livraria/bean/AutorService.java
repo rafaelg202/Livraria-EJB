@@ -19,8 +19,8 @@ public class AutorService {
 	
 	public void adiciona(Autor autor) {
 		this.dao.salva(autor);
-		throw new RuntimeException(
-                "[ERRO] Erro lançado para testar o rollback da transação.");
+//		throw new RuntimeException(
+//                "[ERRO] Erro lançado para testar o rollback da transação.");
 	}
 	
 	public List<Autor> todosAutores() {
